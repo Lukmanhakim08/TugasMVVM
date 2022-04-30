@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     fun inirecyler(){
         rv_country.layoutManager = LinearLayoutManager(this)
-        adaptercount = AdapterCountry()
+        adaptercount = AdapterCountry(){}
         rv_country.adapter = adaptercount
     }
 

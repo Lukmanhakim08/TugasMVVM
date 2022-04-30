@@ -9,7 +9,7 @@ import com.example.tugasmvvm.Model.GetDataCountryResponseItem
 import com.example.tugasmvvm.R
 import kotlinx.android.synthetic.main.item_country.view.*
 
-class AdapterCountry(): RecyclerView.Adapter<AdapterCountry.ViewHolder>() {
+class AdapterCountry(private var onclik : (GetDataCountryResponseItem)->Unit): RecyclerView.Adapter<AdapterCountry.ViewHolder>() {
 
     private var datacountry : List<GetDataCountryResponseItem>? = null
 
@@ -36,6 +36,10 @@ class AdapterCountry(): RecyclerView.Adapter<AdapterCountry.ViewHolder>() {
         Glide.with(holder.itemView.context)
             .load(datacountry!![position].flags.png)
             .into(holder.itemView.img_country)
+
+        holder.itemView.card_contry.setOnClickListener {
+            onclik(datacountry!![position])
+        }
     }
 
     override fun getItemCount(): Int {
